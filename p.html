@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h2>Welcome</h2>
+<ul>
+	
+</ul>
+<script>
+
+window.onload = function(){
+	var ul=document.querySelector("ul");
+	var email= location.href.split("=")[1];
+	var users= localStorage.getItem("users");
+
+	users = JSON.parse(users);
+	var userPro;
+
+	for(var user of users)
+	{
+		if(user.email == email)
+		{
+			userPro=user;
+			break;
+		}
+	}
+	
+	ul.innerHTML = "<li>Name :"+userPro.name +"</li><li>Mobile :"+userPro.mobile +"</li><li>email :"+userPro.email +"</li>";
+	
+
+
+}
+
+</script>
+</body>
+</html>

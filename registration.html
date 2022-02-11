@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <a class="navbar-brand" href="#"><img src="./logo.png"></a>
+
+ <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+   
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="navbar-nav mr-auto ">
+     <li class="nav-item active" >
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contactus.html">Contact Us</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="registration.html">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">Login</a>
+      </li>
+      
+     
+    </ul>
+  </div>
+   <i class="fas fa-user-tie fa-2x" style="margin-right:20px"></i>
+</nav>
+  
+
+  <div class="container-fluid bg-light py-3">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+                <div class="card card-body">
+                    <h3 class="text-center mb-2">Registration</h3>
+                   <hr>
+                    <form>
+                        <div class="form-group" >
+                            <input class="form-control input-lg" placeholder="Enter your name" id="name" name="name" type="text" style="margin-					top: 10px;margin-bottom: 20px">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control input-lg" placeholder="Enter mobile number" id="mobile" name="mobile" type="number" 				style="margin-top: 20px;margin-bottom: 20px">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control input-lg" placeholder="Enter email id" id="email1" name="email1" type="email" 				style="margin-top: 20px;margin-bottom: 20px">
+                        </div>
+                        <!-- <div class="form-group">
+                           <textarea class="form-control input-lg" placeholder="Enter message"style="padding-left:-15px"> </textarea>                      
+                           </div>-->
+                            <div class="form-group">
+                            <input class="form-control input-lg" placeholder="Enter password" id="pass" name="pass" type="password" 				style="margin-top: 20px;margin-bottom: 20px">
+                        </div>
+                        <hr>
+                       <div align="center" style="margin-top: 20px;margin-bottom: 20px">
+                        <input class="btn  btn-primary" id="clear" value="Clear" type="reset">
+                        <input class="btn btn-primary" id="submit" value="Register" type="submit">
+                       </div> 
+
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+<script>
+
+function getdata()
+{ 
+   var a= document.getElementById("name").value;
+   var b= document.getElementById("mobile").value;
+   var c= document.getElementById("email1").value;
+   var d= document.getElementById("pass").value;
+
+       var obj = {
+      name: a,
+      mobile: b,
+      email: c,
+      pass: d,
+    }
+
+var users=localStorage.getItem('users');
+
+console.log(users);
+
+if(users)
+{
+users=JSON.parse(users);
+users.push(obj);
+}
+else
+{
+  var users=[];
+  users.push(obj);
+}
+localStorage.setItem('users',JSON.stringify(users));
+}
+
+document.getElementById("submit").addEventListener('click',getdata);
+ 
+</script>
+
+<div style="padding:20px;">
+<footer class="page-footer" >
+
+  <!-- Copyright -->
+  <div class="text-center py-3">Design by
+    <a href="www.primalinfotech.com">Primal Infotech</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
